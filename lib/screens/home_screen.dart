@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:project2/add_event_method.dart';
+import 'package:project2/method/add_event_method.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeScreenState extends State<HomeScreen> {
   //
 
   late Map<DateTime, List<Event>> selectedEvents;
 
-  // CalendarFormat calenderFormat = CalendarFormat.month;
   DateTime focusedDay = DateTime.now();
   DateTime selectedDay = DateTime.now();
   final _eventController = TextEditingController();
@@ -67,8 +66,6 @@ class _HomePageState extends State<HomePage> {
                           'assets/images/bell.png',
                         ),
                       ),
-                      // Icon(Icons.menu),
-                      // Icon(Icons.notifications_outlined)
                     ],
                   ),
                 ),
@@ -84,23 +81,16 @@ class _HomePageState extends State<HomePage> {
                         formatButtonVisible: false,
                       ),
                       startingDayOfWeek: StartingDayOfWeek.monday,
-                      // daysOfWeekVisible: true,
-
-                      //
-
                       onDaySelected: (selectDay, focusDay) {
                         setState(() {
                           selectedDay = selectDay;
                           focusedDay = focusDay;
                         });
                       },
-
                       selectedDayPredicate: (date) {
                         return isSameDay(selectedDay, date);
                       },
-
                       eventLoader: _getEventsfromDay,
-
                       calendarStyle: CalendarStyle(
                         isTodayHighlighted: true,
                         selectedDecoration: BoxDecoration(
@@ -108,7 +98,6 @@ class _HomePageState extends State<HomePage> {
                           shape: BoxShape.rectangle,
                           borderRadius: BorderRadius.circular(7),
                         ),
-                        // selectedTextStyle: TextStyle(color: Colors.white),
                         defaultDecoration: BoxDecoration(
                           shape: BoxShape.rectangle,
                           borderRadius: BorderRadius.circular(7),
@@ -126,16 +115,12 @@ class _HomePageState extends State<HomePage> {
                         title: Text(
                           DateFormat.MMMEd().format(selectedDay),
                           style: TextStyle(fontSize: 25),
-                          // selectedDay.day.toString(),
                         ),
                         subtitle: Row(
-                          // crossAxisAlignment: CrossAxisAlignment.start,
-                          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
                               margin: EdgeInsets.only(top: 15),
                               padding: EdgeInsets.all(3),
-                              // backgroundColor: Colors.redAccent,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 border: Border.all(
@@ -148,15 +133,14 @@ class _HomePageState extends State<HomePage> {
                                 color: Color(0xffff5f2d),
                               ),
                             ),
-                            // SizedBox(height: 15),
                             Container(
-                              // alignment: Alignment.center,
                               margin: EdgeInsets.only(top: 15, left: 10),
                               padding: EdgeInsets.only(
-                                  left: 10, top: 15, bottom: 15),
-                              // height: 50,
+                                left: 10,
+                                top: 15,
+                                bottom: 15,
+                              ),
                               width: 260,
-                              // color: Color(0xffff5f2d),
                               decoration: BoxDecoration(
                                 color: Color(0xffff5f2d),
                                 borderRadius: BorderRadius.circular(10),
@@ -164,16 +148,13 @@ class _HomePageState extends State<HomePage> {
                               child: InkWell(
                                 child: Text(
                                   event.title,
-                                  // textAlign: TextAlign,
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 15,
                                   ),
                                 ),
                                 onTap: () {
-                                  // Navigator.pushNamed(context, 'details');
-                                  print('taped');
-                                  // detailCard();
+                                  Navigator.pushNamed(context, 'details');
                                 },
                               ),
                             ),
@@ -202,10 +183,8 @@ class _HomePageState extends State<HomePage> {
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor:
-                        Color(0xffff602e), // background (button) color
+                    backgroundColor: Color(0xffff602e),
                     foregroundColor: Colors.white,
-                    // elevation: 0, // foreground (text) color
                     padding: const EdgeInsets.symmetric(
                       horizontal: 40,
                       vertical: 13,
@@ -271,105 +250,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-    );
-  }
-
-  detailCard() {
-    return Scaffold(
-      body: Center(
-        child: Container(
-          padding: EdgeInsets.only(top: 18, left: 15),
-          height: 420,
-          width: 260,
-          decoration: BoxDecoration(
-            color: Color(0xffff5f2d),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                '20% offer dfgjhdf',
-                style: TextStyle(color: Colors.white, fontSize: 18),
-              ),
-              Row(
-                children: const [
-                  Icon(
-                    Icons.location_on_sharp,
-                    color: Colors.white,
-                    size: 35,
-                  ),
-                  Text(
-                    'Amazon',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ],
-              ),
-              Text(
-                'Description',
-                style: TextStyle(color: Colors.white),
-              ),
-              Text(
-                'This Offer applies only on ICICI Debit Cards payment made on Amazon',
-                style: TextStyle(color: Colors.white),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white, // background (button) color
-                  foregroundColor: Color(0xffff602e),
-                  elevation: 0, // foreground (text) color
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 35,
-                    vertical: 18,
-                  ),
-                ),
-                onPressed: () {
-                  // show();
-                },
-                child: Text('Invite'),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Edit',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  Container(
-                    height: 45,
-                    width: 100,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: Color(0x33ecf0f3),
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    child: Text(
-                      'Reminder on',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ],
-              )
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  offerList() {
-    ListView.separated(
-      itemCount: 5,
-      separatorBuilder: (context, index) {
-        return Divider();
-      },
-      itemBuilder: (context, index) {
-        return ListTile();
-      },
     );
   }
 }

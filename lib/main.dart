@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project2/card.dart';
-import 'package:project2/home_page.dart';
-import 'package:project2/list.dart';
+import 'package:project2/screens/offer_detail_screen.dart';
+import 'package:project2/screens/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,10 +14,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Project',
-      // theme: ThemeData(backgroundColor: Colors.red),
-      home: const DetailList(),
+      initialRoute: 'home',
       routes: {
-        'details': (context) => DetailCard(),
+        'home': (context) => HomeScreen(),
+        'details': (context) => DetailScreen(),
       },
     );
   }
