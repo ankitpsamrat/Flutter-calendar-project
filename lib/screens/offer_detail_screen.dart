@@ -38,7 +38,7 @@ class _DetailScreenState extends State<DetailScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromRGBO(208, 208, 219, 1),
+        backgroundColor: const Color.fromRGBO(208, 208, 219, 1),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: SingleChildScrollView(
@@ -50,7 +50,7 @@ class _DetailScreenState extends State<DetailScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        margin: EdgeInsets.only(top: 5),
+                        margin: const EdgeInsets.only(top: 5),
                         width: 25,
                         height: 16,
                         child: Image.asset(
@@ -58,7 +58,7 @@ class _DetailScreenState extends State<DetailScreen> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 5),
+                        margin: const EdgeInsets.only(top: 5),
                         width: 25,
                         height: 16,
                         child: Image.asset(
@@ -68,50 +68,50 @@ class _DetailScreenState extends State<DetailScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: 150),
+                const SizedBox(height: 150),
                 Column(
                   children: [
                     Container(
                       alignment: Alignment.topLeft,
-                      margin: EdgeInsets.only(top: 100, left: 10),
+                      margin: const EdgeInsets.only(top: 100, left: 10),
                       child: Text(
                         DateFormat.MMMEd().format(currentDate),
-                        style: TextStyle(fontSize: 28),
+                        style: const TextStyle(fontSize: 28),
                       ),
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          margin: EdgeInsets.only(left: 15, top: 5),
-                          padding: EdgeInsets.all(3),
+                          margin: const EdgeInsets.only(left: 15, top: 5),
+                          padding: const EdgeInsets.all(3),
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             border: Border.all(
                               width: 2,
-                              color: Color(0xffff5f2d),
+                              color: const Color(0xffff5f2d),
                             ),
                           ),
-                          child: Icon(
+                          child: const Icon(
                             Icons.percent,
                             color: Color(0xffff5f2d),
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.only(left: 15),
-                          padding: EdgeInsets.only(top: 18, left: 15),
+                          margin: const EdgeInsets.only(left: 15),
+                          padding: const EdgeInsets.only(top: 18, left: 15),
                           height: 420,
                           width: 260,
                           decoration: BoxDecoration(
-                            color: Color(0xffff5f2d),
+                            color: const Color(0xffff5f2d),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
+                              const Text(
                                 '20% offer dfgjhdf',
                                 style: TextStyle(
                                   color: Colors.white,
@@ -131,18 +131,18 @@ class _DetailScreenState extends State<DetailScreen> {
                                   ),
                                 ],
                               ),
-                              Text(
+                              const Text(
                                 'Description',
                                 style: TextStyle(color: Colors.white),
                               ),
-                              Text(
+                              const Text(
                                 'This Offer applies only on ICICI Debit Cards payment made on Amazon',
                                 style: TextStyle(color: Colors.white),
                               ),
                               ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.white,
-                                  foregroundColor: Color(0xffff602e),
+                                  foregroundColor: const Color(0xffff602e),
                                   elevation: 0,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10),
@@ -155,13 +155,13 @@ class _DetailScreenState extends State<DetailScreen> {
                                 onPressed: () {
                                   // showInvite();
                                 },
-                                child: Text('Invite'),
+                                child: const Text('Invite'),
                               ),
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Edit',
                                     style: TextStyle(color: Colors.white),
                                   ),
@@ -170,10 +170,10 @@ class _DetailScreenState extends State<DetailScreen> {
                                     width: 100,
                                     alignment: Alignment.center,
                                     decoration: BoxDecoration(
-                                      color: Color(0x33ecf0f3),
+                                      color: const Color(0x33ecf0f3),
                                       borderRadius: BorderRadius.circular(6),
                                     ),
-                                    child: Text(
+                                    child: const Text(
                                       'Reminder on',
                                       style: TextStyle(color: Colors.white),
                                     ),
@@ -192,7 +192,7 @@ class _DetailScreenState extends State<DetailScreen> {
           ),
         ),
         bottomNavigationBar: BottomAppBar(
-          color: Color.fromRGBO(208, 208, 219, 1),
+          color: const Color.fromRGBO(208, 208, 219, 1),
           elevation: 10,
           child: Padding(
             padding: const EdgeInsets.only(top: 10, bottom: 15),
@@ -202,11 +202,11 @@ class _DetailScreenState extends State<DetailScreen> {
               children: [
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.calendar_month_outlined),
+                  icon: const Icon(Icons.calendar_month_outlined),
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xffff602e),
+                    backgroundColor: const Color(0xffff602e),
                     foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(
                       horizontal: 40,
@@ -217,13 +217,13 @@ class _DetailScreenState extends State<DetailScreen> {
                     ),
                   ),
                   onPressed: () {},
-                  child: Icon(
+                  child: const Icon(
                     Icons.add,
                   ),
                 ),
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.search),
+                  icon: const Icon(Icons.search),
                 ),
               ],
             ),
@@ -239,7 +239,7 @@ class _DetailScreenState extends State<DetailScreen> {
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return AlertDialog(
-            title: Text('gdhad'),
+            title: const Text('gdhad'),
             content: Row(
               children: const [
                 Icon(Icons.person),
@@ -251,12 +251,12 @@ class _DetailScreenState extends State<DetailScreen> {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Text('Ok'),
+                child: const Text('Ok'),
               ),
             ],
           );
         }
-        return ScaffoldMessenger(
+        return const ScaffoldMessenger(
           child: SnackBar(
             content: Text('No Data Found!'),
           ),

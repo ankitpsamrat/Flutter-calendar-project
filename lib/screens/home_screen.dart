@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color.fromRGBO(208, 208, 219, 1),
+        backgroundColor: const Color.fromRGBO(208, 208, 219, 1),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: SingleChildScrollView(
@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        margin: EdgeInsets.only(top: 5),
+                        margin: const EdgeInsets.only(top: 5),
                         width: 25,
                         height: 16,
                         child: Image.asset(
@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 5),
+                        margin: const EdgeInsets.only(top: 5),
                         width: 25,
                         height: 16,
                         child: Image.asset(
@@ -75,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       firstDay: DateTime(2015),
                       lastDay: DateTime(2030),
                       focusedDay: focusedDay,
-                      headerStyle: HeaderStyle(
+                      headerStyle: const HeaderStyle(
                         headerMargin: EdgeInsets.only(left: 40, right: 40),
                         titleCentered: true,
                         formatButtonVisible: false,
@@ -94,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       calendarStyle: CalendarStyle(
                         isTodayHighlighted: true,
                         selectedDecoration: BoxDecoration(
-                          color: Color(0xffff5f2d),
+                          color: const Color(0xffff5f2d),
                           shape: BoxShape.rectangle,
                           borderRadius: BorderRadius.circular(7),
                         ),
@@ -103,52 +103,52 @@ class _HomeScreenState extends State<HomeScreen> {
                           borderRadius: BorderRadius.circular(7),
                         ),
                         todayDecoration: BoxDecoration(
-                          color: Color(0xff3e8bff),
+                          color: const Color(0xff3e8bff),
                           shape: BoxShape.rectangle,
                           borderRadius: BorderRadius.circular(7),
                         ),
                       ),
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                     ..._getEventsfromDay(selectedDay).map(
                       (Event event) => ListTile(
                         title: Text(
                           DateFormat.MMMEd().format(selectedDay),
-                          style: TextStyle(fontSize: 25),
+                          style: const TextStyle(fontSize: 25),
                         ),
                         subtitle: Row(
                           children: [
                             Container(
-                              margin: EdgeInsets.only(top: 15),
-                              padding: EdgeInsets.all(3),
+                              margin: const EdgeInsets.only(top: 15),
+                              padding: const EdgeInsets.all(3),
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 border: Border.all(
                                   width: 2,
-                                  color: Color(0xffff5f2d),
+                                  color: const Color(0xffff5f2d),
                                 ),
                               ),
-                              child: Icon(
+                              child: const Icon(
                                 Icons.percent,
                                 color: Color(0xffff5f2d),
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.only(top: 15, left: 10),
-                              padding: EdgeInsets.only(
+                              margin: const EdgeInsets.only(top: 15, left: 10),
+                              padding: const EdgeInsets.only(
                                 left: 10,
                                 top: 15,
                                 bottom: 15,
                               ),
                               width: 260,
                               decoration: BoxDecoration(
-                                color: Color(0xffff5f2d),
+                                color: const Color(0xffff5f2d),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: InkWell(
                                 child: Text(
                                   event.title,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 15,
                                   ),
@@ -169,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         bottomNavigationBar: BottomAppBar(
-          color: Color.fromRGBO(208, 208, 219, 1),
+          color: const Color.fromRGBO(208, 208, 219, 1),
           elevation: 10,
           child: Padding(
             padding: const EdgeInsets.only(top: 10, bottom: 15),
@@ -179,11 +179,11 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.calendar_month_outlined),
+                  icon: const Icon(Icons.calendar_month_outlined),
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xffff602e),
+                    backgroundColor: const Color(0xffff602e),
                     foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(
                       horizontal: 40,
@@ -196,13 +196,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   onPressed: () {
                     addEvents();
                   },
-                  child: Icon(
+                  child: const Icon(
                     Icons.add,
                   ),
                 ),
                 IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.search),
+                  icon: const Icon(Icons.search),
                 ),
               ],
             ),
@@ -216,7 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Add Event'),
+        title: const Text('Add Event'),
         content: TextFormField(
           controller: _eventController,
         ),
@@ -225,7 +225,7 @@ class _HomeScreenState extends State<HomeScreen> {
             onPressed: () {
               Navigator.pop(context);
             },
-            child: Text('Cancle'),
+            child: const Text('Cancle'),
           ),
           TextButton(
             onPressed: () {
@@ -246,7 +246,7 @@ class _HomeScreenState extends State<HomeScreen> {
               setState(() {});
               return;
             },
-            child: Text('Ok'),
+            child: const Text('Ok'),
           ),
         ],
       ),
